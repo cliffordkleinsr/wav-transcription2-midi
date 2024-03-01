@@ -1,6 +1,6 @@
-# PyTorch Implementation of Onsets and Frames
+# Newer PyTorch Implementation of Onsets and Frames Adapted Fom `Jongwook onsets-and-frames`
 
-This is a [PyTorch](https://pytorch.org/) implementation of Google's [Onsets and Frames](https://magenta.tensorflow.org/onsets-frames) model, using the [Maestro dataset](https://magenta.tensorflow.org/datasets/maestro) for training and the Disklavier portion of the [MAPS database](http://www.tsi.telecom-paristech.fr/aao/en/2010/07/08/maps-database-a-piano-database-for-multipitch-estimation-and-automatic-transcription-of-music/) for testing.
+This is a [PyTorch](https://pytorch.org/) implementation of Google's [Onsets and Frames](https://magenta.tensorflow.org/onsets-frames) model, using the [Maestro dataset](https://magenta.tensorflow.org/datasets/maestro) for training and the Disklavier portion of the [MAPS database](http://www.tsi.telecom-paristech.fr/aao/en/2010/07/08/maps-database-a-piano-database-for-multipitch-estimation-and-automatic-transcription-of-music/) for testing. And further adapted from [Jongwook onsets-and-frames](https://github.com/jongwook/onsets-and-frames/tree/master) to accomodate more recent pytorch implementations specifically `torch-2.2.0+cu12.3`
 
 ## Instructions
 
@@ -8,15 +8,15 @@ This project is quite resource-intensive; 32 GB or larger system memory and 8 GB
 
 ### Downloading Dataset
 
-The `data` subdirectory already contains the MAPS database. To download the Maestro dataset, first make sure that you have `ffmpeg` executable and run `prepare_maestro.sh` script:
+To download the Maestro dataset use the link [provided](https://magenta.tensorflow.org/datasets/maestro). Bear in mind that this dataset is  **~100Gb**
 
-```bash
-ffmpeg -version
-cd data
-./prepare_maestro.sh
+### Transcribing
+To use the Model provided from `Jongwook onsets-and-frames` you need to modify one torch source file specifically `torch.nn.modules.rnn.py` by replacing it with the file at the root of the repositort aliased `rnn.py`
+Download and Place the [model](https://drive.google.com/file/d/1Mj2Em07Lvl3mvDQCCxOYHjPiB-S0WGT1/view) at the root of the repository in your local directory.
+Then you can run the command:
+```python
+python transcribe.py -i 'folder-with-wavs'
 ```
-
-This will download the full Maestro dataset from Google's server and automatically unzip and encode them as FLAC files in order to save storage. However, you'll still need about 200 GB of space for intermediate storage.
 
 ### Training
 
