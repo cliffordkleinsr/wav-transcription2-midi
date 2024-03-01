@@ -12,7 +12,8 @@ To download the Maestro dataset use the link [provided](https://magenta.tensorfl
 
 ### Transcribing
 To use the Model provided from `Jongwook onsets-and-frames` you need to modify one torch source file specifically `torch.nn.modules.rnn.py` by replacing it with the file at the root of the repositort aliased `rnn.py`
-then you can run the command:
+Download and Place the [model](https://drive.google.com/file/d/1Mj2Em07Lvl3mvDQCCxOYHjPiB-S0WGT1/view) at the root of the repository in your local directory.
+Then you can run the command:
 ```python
 python transcribe.py -i 'folder-with-wavs'
 ```
