@@ -1,0 +1,7 @@
+scipy
+sacred
+librosa
+tqdm
+git+https://github.com/craffel/mir_eval.git
+pretty_midi
+album-splitter
